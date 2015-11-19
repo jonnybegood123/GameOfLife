@@ -8,12 +8,13 @@ RED = (255, 0, 0)
 WIDTH = 15
 HEIGHT = 15
 MARGIN = 1
+RANGE = 45
 
-grid = [[0 for x in range(50)] for x in range(50)]
+grid = [[0 for x in range(RANGE)] for x in range(RANGE)]
 #tempGrid = [[0 for x in range(30)] for x in range(30)]
 #grid[1][5] = 1
 
-WINDOW_SIZE = [801, 801]
+WINDOW_SIZE = [705, 705]
 screen = pygame.display.set_mode(WINDOW_SIZE)
 pygame.display.set_caption("Game of Life")
 screen.fill(BLACK)
@@ -71,8 +72,8 @@ def beginGameOfLife(grid):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 simDone = True
-        for row in range(50):
-            for column in range(50):
+        for row in range(RANGE):
+            for column in range(RANGE):
                 numberOfNeighbors = getNumberOfNeighbors(row, column)
                 if numberOfNeighbors < 2:
                     grid[row][column] = 0
@@ -83,8 +84,8 @@ def beginGameOfLife(grid):
                 elif numberOfNeighbors == 3:
                     grid[row][column] = 1
 
-        for row in range(50):
-            for column in range(50):
+        for row in range(RANGE):
+            for column in range(RANGE):
                 if grid[row][column] == 1:
                     color = GREEN
                 else:
@@ -96,7 +97,7 @@ def beginGameOfLife(grid):
                                   WIDTH,
                                   HEIGHT])
 
-        clock.tick(10)
+        clock.tick(20)
         pygame.display.flip()
 
 def mainInitialLoop():
@@ -114,13 +115,13 @@ def mainInitialLoop():
                     grid[row][column] = 1
                 else:
                     grid[row][column] = 0
-                print("Click: ", pos, " Grid coordinates: Row:", row, " Column: ", column)
+                print("Click at:", pos, "with Grid Coordinates: Row:", row, " Column: ", column)
             elif event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
                 beginGameOfLife(grid)
                 done = True
 
-        for row in range(50):
-            for column in range(50):
+        for row in range(RANGE):
+            for column in range(RANGE):
                 if grid[row][column] == 1:
                     color = GREEN
                 else:

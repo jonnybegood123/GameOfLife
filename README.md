@@ -8,6 +8,6 @@ Directions:
 
 - Press enter or space again to add/delete more cells.
 
-- Use the addObject method used the main method to populate the grid with pre-made creations.
+- Use the drawObject method used in the main method to populate the grid with pre-made creations.
 
 Enjoy!

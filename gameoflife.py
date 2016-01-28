@@ -34,6 +34,10 @@ def drawObject(objectName):
         grid[9][26] = 1; grid[10][26] = 1; grid[11][27] = 1; grid[7][27] = 1; grid[7][29] = 1
         grid[6][29] = 1; grid[11][29] = 1; grid[12][29] = 1; grid[8][39] = 1; grid[9][39] = 1
         grid[8][40] = 1;
+    elif objectName == "Pulsar":
+        grid[10][5] = 1; grid[10][6] = 1; grid[10][7] = 1; grid[10][9] = 1; grid[10][10] = 1
+        grid[10][11] = 1; grid[8][8] = 1; grid[7][8] = 1; grid[6][8] = 1; grid[12][8] = 1
+        grid[13][8] = 1; grid[14][8] = 1
 
 def getNumberOfNeighbors(row, column):
     numberOfNeighbors = 0
